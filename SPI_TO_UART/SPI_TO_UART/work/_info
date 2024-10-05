@@ -1,0 +1,73 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/18.1
+vdiv_freq
+Z0 !s110 1725947261
+!i10b 1
+!s100 _foF^XgYZN?11V4lA0=?23
+IIIGfKj`T@_?6Ndea3S<=m2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Temp/Veriog_kelvin/SPI_TO_UART
+w1725241551
+8C:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v
+FC:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1725947261.000000
+!s107 C:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vspi_controller
+R0
+!i10b 1
+!s100 OcmXRm9KYj=W7`D38YAQ;1
+IlF[Z]CX_Io:i?jS71`6:d3
+R1
+R2
+w1725430004
+8C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v
+FC:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v|
+!i113 1
+R5
+R6
+vspi_controller_tst
+R0
+!i10b 1
+!s100 <@IO6f@;?h=2[7mHo5NQP3
+IjJ8aLDmVTB9:cd5DLT8m=2
+R1
+R2
+w1725341565
+8C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v
+FC:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v|
+!i113 1
+R5
+R6

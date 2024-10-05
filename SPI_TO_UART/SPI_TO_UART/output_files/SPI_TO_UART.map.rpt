@@ -1,0 +1,933 @@
+Analysis & Synthesis report for SPI_TO_UART
+Sat Oct 05 20:36:01 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |SPI_TO_UART|fsm:fsm_inst|state_reg
+ 10. State Machine - |SPI_TO_UART|uart_tx:uart_tx_inst|state_reg
+ 11. State Machine - |SPI_TO_UART|spi_controller:spi_controller_inst|state_reg
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |SPI_TO_UART
+ 17. Parameter Settings for User Entity Instance: spi_controller:spi_controller_inst
+ 18. Parameter Settings for User Entity Instance: spi_controller:spi_controller_inst|div_freq:div_freq_inst
+ 19. Parameter Settings for User Entity Instance: uart_tx:uart_tx_inst
+ 20. Parameter Settings for User Entity Instance: fsm:fsm_inst
+ 21. Parameter Settings for User Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst
+ 22. Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1
+ 23. Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2
+ 24. Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0
+ 25. lpm_mult Parameter Settings by Entity Instance
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Oct 05 20:36:01 2024       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; SPI_TO_UART                                 ;
+; Top-level Entity Name              ; SPI_TO_UART                                 ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 693                                         ;
+;     Total combinational functions  ; 560                                         ;
+;     Dedicated logic registers      ; 395                                         ;
+; Total registers                    ; 395                                         ;
+; Total pins                         ; 7                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 10                                          ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; SPI_TO_UART        ; SPI_TO_UART        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; div_freq.v                       ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/div_freq.v       ;         ;
+; uart_tx.v                        ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/uart_tx.v        ;         ;
+; spi_controller.v                 ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v ;         ;
+; config_circuit.v                 ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v ;         ;
+; fsm.v                            ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v            ;         ;
+; SPI_TO_UART.v                    ; yes             ; User Verilog HDL File        ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART.v    ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf      ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc    ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc   ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc      ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc      ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc      ;         ;
+; db/mult_tgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_tgs.tdf  ;         ;
+; db/mult_rns.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_rns.tdf  ;         ;
+; db/mult_1os.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_1os.tdf  ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 693       ;
+;                                             ;           ;
+; Total combinational functions               ; 560       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 139       ;
+;     -- 3 input functions                    ; 96        ;
+;     -- <=2 input functions                  ; 325       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 228       ;
+;     -- arithmetic mode                      ; 332       ;
+;                                             ;           ;
+; Total registers                             ; 395       ;
+;     -- Dedicated logic registers            ; 395       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 7         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 10        ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 321       ;
+; Total fan-out                               ; 3087      ;
+; Average fan-out                             ; 3.15      ;
++---------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                   ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                 ; Entity Name    ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+----------------+--------------+
+; |SPI_TO_UART                               ; 560 (1)             ; 395 (0)                   ; 0           ; 0          ; 10           ; 0       ; 5         ; 7    ; 0            ; 0          ; |SPI_TO_UART                                                                                        ; SPI_TO_UART    ; work         ;
+;    |fsm:fsm_inst|                          ; 202 (117)           ; 205 (205)                 ; 0           ; 0          ; 10           ; 0       ; 5         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst                                                                           ; fsm            ; work         ;
+;       |config_circuit:config_circuit_inst| ; 85 (57)             ; 0 (0)                     ; 0           ; 0          ; 10           ; 0       ; 5         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst                                        ; config_circuit ; work         ;
+;          |lpm_mult:Mult0|                  ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0                         ; lpm_mult       ; work         ;
+;             |mult_1os:auto_generated|      ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0|mult_1os:auto_generated ; mult_1os       ; work         ;
+;          |lpm_mult:Mult1|                  ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1                         ; lpm_mult       ; work         ;
+;             |mult_tgs:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1|mult_tgs:auto_generated ; mult_tgs       ; work         ;
+;          |lpm_mult:Mult2|                  ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2                         ; lpm_mult       ; work         ;
+;             |mult_rns:auto_generated|      ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |SPI_TO_UART|fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2|mult_rns:auto_generated ; mult_rns       ; work         ;
+;    |spi_controller:spi_controller_inst|    ; 207 (162)           ; 111 (78)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SPI_TO_UART|spi_controller:spi_controller_inst                                                     ; spi_controller ; work         ;
+;       |div_freq:div_freq_inst|             ; 45 (45)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SPI_TO_UART|spi_controller:spi_controller_inst|div_freq:div_freq_inst                              ; div_freq       ; work         ;
+;    |uart_tx:uart_tx_inst|                  ; 150 (150)           ; 79 (79)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SPI_TO_UART|uart_tx:uart_tx_inst                                                                   ; uart_tx        ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 5           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 10          ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 4           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SPI_TO_UART|fsm:fsm_inst|state_reg                                                                 ;
++-------------------------+------------------------+-----------------------+-------------------------+----------------+
+; Name                    ; state_reg.TX_DATA_UART ; state_reg.RX_DATA_SPI ; state_reg.TX_CONFIG_SPI ; state_reg.IDLE ;
++-------------------------+------------------------+-----------------------+-------------------------+----------------+
+; state_reg.IDLE          ; 0                      ; 0                     ; 0                       ; 0              ;
+; state_reg.TX_CONFIG_SPI ; 0                      ; 0                     ; 1                       ; 1              ;
+; state_reg.RX_DATA_SPI   ; 0                      ; 1                     ; 0                       ; 1              ;
+; state_reg.TX_DATA_UART  ; 1                      ; 0                     ; 0                       ; 1              ;
++-------------------------+------------------------+-----------------------+-------------------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - |SPI_TO_UART|uart_tx:uart_tx_inst|state_reg                                              ;
++------------------+------------------+----------------+-----------------+----------------+----------------+
+; Name             ; state_reg.PARITY ; state_reg.SEND ; state_reg.START ; state_reg.IDLE ; state_reg.STOP ;
++------------------+------------------+----------------+-----------------+----------------+----------------+
+; state_reg.IDLE   ; 0                ; 0              ; 0               ; 0              ; 0              ;
+; state_reg.START  ; 0                ; 0              ; 1               ; 1              ; 0              ;
+; state_reg.SEND   ; 0                ; 1              ; 0               ; 1              ; 0              ;
+; state_reg.PARITY ; 1                ; 0              ; 0               ; 1              ; 0              ;
+; state_reg.STOP   ; 0                ; 0              ; 0               ; 1              ; 1              ;
++------------------+------------------+----------------+-----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------+
+; State Machine - |SPI_TO_UART|spi_controller:spi_controller_inst|state_reg              ;
++-----------------+-----------------+-----------------+-----------------+----------------+
+; Name            ; state_reg.TX_RX ; state_reg.WAIT2 ; state_reg.WAIT1 ; state_reg.IDLE ;
++-----------------+-----------------+-----------------+-----------------+----------------+
+; state_reg.IDLE  ; 0               ; 0               ; 0               ; 0              ;
+; state_reg.WAIT1 ; 0               ; 0               ; 1               ; 1              ;
+; state_reg.WAIT2 ; 0               ; 1               ; 0               ; 1              ;
+; state_reg.TX_RX ; 1               ; 0               ; 0               ; 1              ;
++-----------------+-----------------+-----------------+-----------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++--------------------------------------------------+-----------------------------------------------+
+; Register name                                    ; Reason for Removal                            ;
++--------------------------------------------------+-----------------------------------------------+
+; fsm:fsm_inst|tx_byte_spi[0]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[1]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[2]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[3]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[4]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[5]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[6]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[7]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[8]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[9]~en                   ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[10]~en                  ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[11]~en                  ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[12]~en                  ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[13]~en                  ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[14]~en                  ; Lost fanout                                   ;
+; fsm:fsm_inst|tx_byte_spi[15]~en                  ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[1]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[0]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[2]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[3]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[4]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[5]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[6]~en ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|rx_byte[7]~en ; Lost fanout                                   ;
+; uart_tx:uart_tx_inst|data_tx_reg[12..19]         ; Stuck at GND due to stuck port data_in        ;
+; uart_tx:uart_tx_inst|counter[0,1]                ; Merged with uart_tx:uart_tx_inst|counter[2]   ;
+; uart_tx:uart_tx_inst|counter[2]                  ; Stuck at GND due to stuck port data_in        ;
+; fsm:fsm_inst|tx_byte_spi[4]~reg0                 ; Stuck at GND due to stuck port data_in        ;
+; fsm:fsm_inst|tx_byte_spi[3]~reg0                 ; Stuck at GND due to stuck port data_in        ;
+; fsm:fsm_inst|tx_byte_spi[2]~reg0                 ; Stuck at GND due to stuck port data_in        ;
+; fsm:fsm_inst|tx_byte_spi[5]~reg0                 ; Merged with fsm:fsm_inst|tx_byte_spi[7]~reg0  ;
+; fsm:fsm_inst|tx_byte_spi[15]~reg0                ; Merged with fsm:fsm_inst|tx_byte_spi[11]~reg0 ;
+; fsm:fsm_inst|tx_byte_spi[6]~reg0                 ; Merged with fsm:fsm_inst|tx_byte_spi[0]~reg0  ;
+; fsm:fsm_inst|tx_byte_spi[1]~reg0                 ; Merged with fsm:fsm_inst|tx_byte_spi[0]~reg0  ;
+; fsm:fsm_inst|tx_byte_spi[13]~reg0                ; Merged with fsm:fsm_inst|tx_byte_spi[12]~reg0 ;
+; fsm:fsm_inst|tx_byte_spi[14]~reg0                ; Merged with fsm:fsm_inst|tx_byte_spi[12]~reg0 ;
+; fsm:fsm_inst|state_reg~4                         ; Lost fanout                                   ;
+; fsm:fsm_inst|state_reg~5                         ; Lost fanout                                   ;
+; fsm:fsm_inst|state_reg~6                         ; Lost fanout                                   ;
+; uart_tx:uart_tx_inst|state_reg~4                 ; Lost fanout                                   ;
+; uart_tx:uart_tx_inst|state_reg~5                 ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|state_reg~4   ; Lost fanout                                   ;
+; spi_controller:spi_controller_inst|state_reg~5   ; Lost fanout                                   ;
+; Total Number of Removed Registers = 51           ;                                               ;
++--------------------------------------------------+-----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 395   ;
+; Number of registers using Synchronous Clear  ; 204   ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 250   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 244   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; uart_tx:uart_tx_inst|bit_count[2]      ; 2       ;
+; uart_tx:uart_tx_inst|bit_count[4]      ; 2       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |SPI_TO_UART|spi_controller:spi_controller_inst|div_freq:div_freq_inst|cuenta[22] ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |SPI_TO_UART|uart_tx:uart_tx_inst|bit_count[18]                                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |SPI_TO_UART|spi_controller:spi_controller_inst|num_bits_rx[27]                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |SPI_TO_UART|spi_controller:spi_controller_inst|num_bits_tx[3]                    ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |SPI_TO_UART|uart_tx:uart_tx_inst|counter[22]                                     ;
+; 1:1                ; 3 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; Yes        ; |SPI_TO_UART|fsm:fsm_inst|tx_byte_spi[6]~reg0                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SPI_TO_UART|uart_tx:uart_tx_inst|bit_count[4]                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |SPI_TO_UART ;
++-----------------------+----------+------------------------------------------+
+; Parameter Name        ; Value    ; Type                                     ;
++-----------------------+----------+------------------------------------------+
+; CLK_FPGA              ; 50000000 ; Signed Integer                           ;
+; BAUDIOS               ; 9600     ; Signed Integer                           ;
+; CLK_COUNT             ; 24       ; Signed Integer                           ;
+; CLK_SPI               ; 5000000  ; Signed Integer                           ;
+; DATA_WIDTH_UART       ; 20       ; Signed Integer                           ;
+; DATA_WIDTH_SPI        ; 8        ; Signed Integer                           ;
+; DATA_WIDTH_SPI_CONFIG ; 16       ; Signed Integer                           ;
+; T_SB                  ; 101      ; Unsigned Binary                          ;
+; FILTER                ; 000      ; Unsigned Binary                          ;
+; SPI3W                 ; 0        ; Unsigned Binary                          ;
+; OSRS_T                ; 111      ; Unsigned Binary                          ;
+; OSRS_P                ; 000      ; Unsigned Binary                          ;
+; MODE                  ; 11       ; Unsigned Binary                          ;
+; TEMP_XLSB_ADDR        ; 11111100 ; Unsigned Binary                          ;
+; TEMP_LSB_ADDR         ; 11111011 ; Unsigned Binary                          ;
+; TEMP_MSB_ADDR         ; 11111010 ; Unsigned Binary                          ;
+; CONFIG_ADDR           ; 11110101 ; Unsigned Binary                          ;
+; CTRL_MEAS_ADDR        ; 11110100 ; Unsigned Binary                          ;
+; TEMP_1_MSB_COEF_ADDR  ; 10001001 ; Unsigned Binary                          ;
+; TEMP_1_LSB_COEF_ADDR  ; 10001000 ; Unsigned Binary                          ;
+; TEMP_2_MSB_COEF_ADDR  ; 10001011 ; Unsigned Binary                          ;
+; TEMP_2_LSB_COEF_ADDR  ; 10001010 ; Unsigned Binary                          ;
+; TEMP_3_MSB_COEF_ADDR  ; 10001101 ; Unsigned Binary                          ;
+; TEMP_3_LSB_COEF_ADDR  ; 10001100 ; Unsigned Binary                          ;
++-----------------------+----------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi_controller:spi_controller_inst ;
++-----------------------+----------+----------------------------------------------+
+; Parameter Name        ; Value    ; Type                                         ;
++-----------------------+----------+----------------------------------------------+
+; CLK_FPGA              ; 50000000 ; Signed Integer                               ;
+; CLK_SPI               ; 5000000  ; Signed Integer                               ;
+; DATA_WIDTH_SPI        ; 8        ; Signed Integer                               ;
+; DATA_WIDTH_SPI_CONFIG ; 16       ; Signed Integer                               ;
++-----------------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi_controller:spi_controller_inst|div_freq:div_freq_inst ;
++----------------+----------+----------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                       ;
++----------------+----------+----------------------------------------------------------------------------+
+; CLK_FPGA       ; 50000000 ; Signed Integer                                                             ;
+; CLK_SPI        ; 5000000  ; Signed Integer                                                             ;
++----------------+----------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_tx:uart_tx_inst ;
++-----------------+----------+--------------------------------------+
+; Parameter Name  ; Value    ; Type                                 ;
++-----------------+----------+--------------------------------------+
+; CLK_FPGA        ; 50000000 ; Signed Integer                       ;
+; BAUDIOS         ; 9600     ; Signed Integer                       ;
+; CLK_COUNT       ; 24       ; Signed Integer                       ;
+; DATA_WIDTH_UART ; 20       ; Signed Integer                       ;
++-----------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fsm:fsm_inst ;
++-----------------------+----------+------------------------+
+; Parameter Name        ; Value    ; Type                   ;
++-----------------------+----------+------------------------+
+; CLK_FPGA              ; 50000000 ; Signed Integer         ;
+; CLK_SPI               ; 5000000  ; Signed Integer         ;
+; DATA_WIDTH_UART       ; 20       ; Signed Integer         ;
+; DATA_WIDTH_SPI        ; 8        ; Signed Integer         ;
+; DATA_WIDTH_SPI_CONFIG ; 16       ; Signed Integer         ;
+; T_SB                  ; 101      ; Unsigned Binary        ;
+; FILTER                ; 000      ; Unsigned Binary        ;
+; SPI3W                 ; 0        ; Unsigned Binary        ;
+; OSRS_T                ; 111      ; Unsigned Binary        ;
+; OSRS_P                ; 000      ; Unsigned Binary        ;
+; MODE                  ; 11       ; Unsigned Binary        ;
+; TEMP_XLSB_ADDR        ; 11111100 ; Unsigned Binary        ;
+; TEMP_LSB_ADDR         ; 11111011 ; Unsigned Binary        ;
+; TEMP_MSB_ADDR         ; 11111010 ; Unsigned Binary        ;
+; CONFIG_ADDR           ; 11110101 ; Unsigned Binary        ;
+; CTRL_MEAS_ADDR        ; 11110100 ; Unsigned Binary        ;
+; TEMP_1_MSB_COEF_ADDR  ; 10001001 ; Unsigned Binary        ;
+; TEMP_1_LSB_COEF_ADDR  ; 10001000 ; Unsigned Binary        ;
+; TEMP_2_MSB_COEF_ADDR  ; 10001011 ; Unsigned Binary        ;
+; TEMP_2_LSB_COEF_ADDR  ; 10001010 ; Unsigned Binary        ;
+; TEMP_3_MSB_COEF_ADDR  ; 10001101 ; Unsigned Binary        ;
+; TEMP_3_LSB_COEF_ADDR  ; 10001100 ; Unsigned Binary        ;
++-----------------------+----------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst ;
++-----------------------+----------+-----------------------------------------------------------+
+; Parameter Name        ; Value    ; Type                                                      ;
++-----------------------+----------+-----------------------------------------------------------+
+; DATA_WIDTH_SPI        ; 8        ; Signed Integer                                            ;
+; DATA_WIDTH_SPI_CONFIG ; 16       ; Signed Integer                                            ;
+; DATA_WIDTH_UART       ; 20       ; Signed Integer                                            ;
+; T_SB                  ; 101      ; Unsigned Binary                                           ;
+; FILTER                ; 000      ; Unsigned Binary                                           ;
+; SPI3W                 ; 0        ; Unsigned Binary                                           ;
+; OSRS_T                ; 111      ; Unsigned Binary                                           ;
+; OSRS_P                ; 000      ; Unsigned Binary                                           ;
+; MODE                  ; 11       ; Unsigned Binary                                           ;
+; CONFIG_ADDR           ; 11110101 ; Unsigned Binary                                           ;
+; CTRL_MEAS_ADDR        ; 11110100 ; Unsigned Binary                                           ;
+; TEMP_XLSB_ADDR        ; 11111100 ; Unsigned Binary                                           ;
+; TEMP_LSB_ADDR         ; 11111011 ; Unsigned Binary                                           ;
+; TEMP_MSB_ADDR         ; 11111010 ; Unsigned Binary                                           ;
+; TEMP_1_MSB_COEF_ADDR  ; 10001001 ; Unsigned Binary                                           ;
+; TEMP_1_LSB_COEF_ADDR  ; 10001000 ; Unsigned Binary                                           ;
+; TEMP_2_MSB_COEF_ADDR  ; 10001011 ; Unsigned Binary                                           ;
+; TEMP_2_LSB_COEF_ADDR  ; 10001010 ; Unsigned Binary                                           ;
+; TEMP_3_MSB_COEF_ADDR  ; 10001101 ; Unsigned Binary                                           ;
+; TEMP_3_LSB_COEF_ADDR  ; 10001100 ; Unsigned Binary                                           ;
++-----------------------+----------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1 ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                                ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                                      ;
+; LPM_WIDTHA                                     ; 17       ; Untyped                                             ;
+; LPM_WIDTHB                                     ; 17       ; Untyped                                             ;
+; LPM_WIDTHP                                     ; 34       ; Untyped                                             ;
+; LPM_WIDTHR                                     ; 34       ; Untyped                                             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                                             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                                             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                                             ;
+; LATENCY                                        ; 0        ; Untyped                                             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; USE_EAB                                        ; OFF      ; Untyped                                             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                                             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                                             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                                             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                                 ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                                             ;
+; CBXI_PARAMETER                                 ; mult_tgs ; Untyped                                             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                                             ;
++------------------------------------------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2 ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                                ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                                      ;
+; LPM_WIDTHA                                     ; 20       ; Untyped                                             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                                             ;
+; LPM_WIDTHP                                     ; 36       ; Untyped                                             ;
+; LPM_WIDTHR                                     ; 36       ; Untyped                                             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                                             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped                                             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                                             ;
+; LATENCY                                        ; 0        ; Untyped                                             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; USE_EAB                                        ; OFF      ; Untyped                                             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                                             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                                             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                                             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                                 ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                                             ;
+; CBXI_PARAMETER                                 ; mult_rns ; Untyped                                             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                                             ;
++------------------------------------------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0 ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                                ;
++------------------------------------------------+----------+-----------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                                      ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                                             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                                             ;
+; LPM_WIDTHP                                     ; 48       ; Untyped                                             ;
+; LPM_WIDTHR                                     ; 48       ; Untyped                                             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                                             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped                                             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                                             ;
+; LATENCY                                        ; 0        ; Untyped                                             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                                             ;
+; USE_EAB                                        ; OFF      ; Untyped                                             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                                             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                                             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                                             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                                 ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                                             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                                             ;
+; CBXI_PARAMETER                                 ; mult_1os ; Untyped                                             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                                             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                                             ;
++------------------------------------------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                         ;
++---------------------------------------+----------------------------------------------------------------+
+; Name                                  ; Value                                                          ;
++---------------------------------------+----------------------------------------------------------------+
+; Number of entity instances            ; 3                                                              ;
+; Entity Instance                       ; fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 17                                                             ;
+;     -- LPM_WIDTHB                     ; 17                                                             ;
+;     -- LPM_WIDTHP                     ; 34                                                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
+; Entity Instance                       ; fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 20                                                             ;
+;     -- LPM_WIDTHB                     ; 16                                                             ;
+;     -- LPM_WIDTHP                     ; 36                                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
+; Entity Instance                       ; fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                                             ;
+;     -- LPM_WIDTHB                     ; 16                                                             ;
+;     -- LPM_WIDTHP                     ; 48                                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
++---------------------------------------+----------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 7                           ;
+; cycloneiii_ff         ; 395                         ;
+;     CLR               ; 16                          ;
+;     CLR SCLR          ; 126                         ;
+;     ENA               ; 131                         ;
+;     ENA CLR           ; 32                          ;
+;     ENA CLR SCLR      ; 76                          ;
+;     ENA SCLR          ; 2                           ;
+;     ENA SLD           ; 3                           ;
+;     plain             ; 9                           ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 561                         ;
+;     arith             ; 332                         ;
+;         2 data inputs ; 255                         ;
+;         3 data inputs ; 77                          ;
+;     normal            ; 229                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 57                          ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 139                         ;
+; cycloneiii_mac_mult   ; 5                           ;
+; cycloneiii_mac_out    ; 5                           ;
+;                       ;                             ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.45                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Oct 05 20:35:47 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SPI_TO_UART -c SPI_TO_UART
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file div_freq.v
+    Info (12023): Found entity 1: div_freq File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/div_freq.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: uart_tx File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/uart_tx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file spi_controller.v
+    Info (12023): Found entity 1: spi_controller File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file config_circuit.v
+    Info (12023): Found entity 1: config_circuit File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
+    Info (12023): Found entity 1: fsm File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file spi_to_uart.v
+    Info (12023): Found entity 1: SPI_TO_UART File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART.v Line: 23
+Info (12127): Elaborating entity "SPI_TO_UART" for the top level hierarchy
+Info (12128): Elaborating entity "spi_controller" for hierarchy "spi_controller:spi_controller_inst" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART.v Line: 92
+Info (12128): Elaborating entity "div_freq" for hierarchy "spi_controller:spi_controller_inst|div_freq:div_freq_inst" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 44
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:uart_tx_inst" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART.v Line: 107
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:fsm_inst" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART.v Line: 144
+Info (12128): Elaborating entity "config_circuit" for hierarchy "fsm:fsm_inst|config_circuit:config_circuit_inst" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 102
+Warning (10230): Verilog HDL assignment warning at config_circuit.v(140): truncated value with size 32 to match size of target (20) File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 140
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[0]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[1]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[2]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[3]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[4]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[5]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[6]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[7]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[8]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[9]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[10]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[11]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[12]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[13]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[14]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|tx_byte_spi[15]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/fsm.v Line: 317
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[39]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[38]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[37]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[36]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[35]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[34]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[33]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[32]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[23]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[22]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[21]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[20]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[19]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[18]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[17]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[16]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[7]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[6]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[5]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[4]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[3]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[2]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[1]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_rx_packed[0]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 35
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[87]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[86]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[85]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[84]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[83]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[82]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[81]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[80]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[71]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[70]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[69]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[68]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[67]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[66]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[65]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[64]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[55]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[54]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[53]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[52]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[51]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[50]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[49]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[48]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[39]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[38]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[37]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[36]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[35]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[34]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[33]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[32]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[23]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[22]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[21]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[20]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[19]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[18]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[17]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[16]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[7]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[6]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[5]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[4]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[3]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[2]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[1]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "fsm:fsm_inst|config_circuit:config_circuit_inst|config_inst_temp_coef_rx_packed[0]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 37
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[1]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[0]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[2]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[3]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[4]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[5]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[6]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+    Warning (13049): Converted tri-state buffer "spi_controller:spi_controller_inst|rx_byte[7]" feeding internal logic into a wire File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/spi_controller.v Line: 201
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fsm:fsm_inst|config_circuit:config_circuit_inst|Mult1" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fsm:fsm_inst|config_circuit:config_circuit_inst|Mult2" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fsm:fsm_inst|config_circuit:config_circuit_inst|Mult0" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 122
+Info (12130): Elaborated megafunction instantiation "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+Info (12133): Instantiated megafunction "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult1" with the following parameter: File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+    Info (12134): Parameter "LPM_WIDTHA" = "17"
+    Info (12134): Parameter "LPM_WIDTHB" = "17"
+    Info (12134): Parameter "LPM_WIDTHP" = "34"
+    Info (12134): Parameter "LPM_WIDTHR" = "34"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_tgs.tdf
+    Info (12023): Found entity 1: mult_tgs File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_tgs.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+Info (12133): Instantiated megafunction "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult2" with the following parameter: File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 125
+    Info (12134): Parameter "LPM_WIDTHA" = "20"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "36"
+    Info (12134): Parameter "LPM_WIDTHR" = "36"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_rns.tdf
+    Info (12023): Found entity 1: mult_rns File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_rns.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0" File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 122
+Info (12133): Instantiated megafunction "fsm:fsm_inst|config_circuit:config_circuit_inst|lpm_mult:Mult0" with the following parameter: File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/config_circuit.v Line: 122
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "48"
+    Info (12134): Parameter "LPM_WIDTHR" = "48"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_1os.tdf
+    Info (12023): Found entity 1: mult_1os File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/db/mult_1os.tdf Line: 30
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Info (13000): Registers with preset signals will power-up high File: C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/uart_tx.v Line: 192
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 31 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/output_files/SPI_TO_UART.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 710 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 693 logic cells
+    Info (21062): Implemented 10 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 99 warnings
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Sat Oct 05 20:36:01 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Temp/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/SPI_TO_UART/output_files/SPI_TO_UART.map.smsg.
+
+

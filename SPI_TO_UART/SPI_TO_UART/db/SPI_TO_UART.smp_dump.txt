@@ -1,0 +1,22 @@
+
+State Machine - |SPI_TO_UART|fsm:fsm_inst|state_reg
+Name state_reg.TX_DATA_UART state_reg.RX_DATA_SPI state_reg.TX_CONFIG_SPI state_reg.IDLE 
+state_reg.IDLE 0 0 0 0 
+state_reg.TX_CONFIG_SPI 0 0 1 1 
+state_reg.RX_DATA_SPI 0 1 0 1 
+state_reg.TX_DATA_UART 1 0 0 1 
+
+State Machine - |SPI_TO_UART|uart_tx:uart_tx_inst|state_reg
+Name state_reg.PARITY state_reg.SEND state_reg.START state_reg.IDLE state_reg.STOP 
+state_reg.IDLE 0 0 0 0 0 
+state_reg.START 0 0 1 1 0 
+state_reg.SEND 0 1 0 1 0 
+state_reg.PARITY 1 0 0 1 0 
+state_reg.STOP 0 0 0 1 1 
+
+State Machine - |SPI_TO_UART|spi_controller:spi_controller_inst|state_reg
+Name state_reg.TX_RX state_reg.WAIT2 state_reg.WAIT1 state_reg.IDLE 
+state_reg.IDLE 0 0 0 0 
+state_reg.WAIT1 0 0 1 1 
+state_reg.WAIT2 0 1 0 1 
+state_reg.TX_RX 1 0 0 1 

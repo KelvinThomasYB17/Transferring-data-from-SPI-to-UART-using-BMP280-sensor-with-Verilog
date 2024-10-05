@@ -1,0 +1,166 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Temp/Veriog_kelvin/SPI_TO_UART/simulation/modelsim
+vconfig_circuit
+Z1 !s110 1726944839
+!i10b 1
+!s100 :N6H78WW]H`L]UVGLd?F13
+I<A2FhGL9R2mW2Z0:B9JaM3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1726855681
+8../../config_circuit.v
+F../../config_circuit.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1726944839.000000
+!s107 ../../config_circuit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../config_circuit.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART
+Z7 tCvgOpt 0
+vdiv_freq
+R1
+!i10b 1
+!s100 _foF^XgYZN?11V4lA0=?23
+IA1e<KfmkXG4`5kBcjRY:60
+R2
+R0
+w1725241551
+8../../div_freq.v
+F../../div_freq.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 ../../div_freq.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../div_freq.v|
+!i113 1
+R5
+R6
+R7
+vfsm
+R1
+!i10b 1
+!s100 7?h0GYIYgSTDB2QC<n;961
+IK053kSM[W`ngiYmXb?`Zf1
+R2
+R0
+w1726814393
+8../../fsm.v
+F../../fsm.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 ../../fsm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../fsm.v|
+!i113 1
+R5
+R6
+R7
+vspi_controller
+R1
+!i10b 1
+!s100 80j1lM>3h=25ZVnnGIPQS3
+I4jVcJhICRXj;6[9L^j2600
+R2
+R0
+w1726641691
+8../../spi_controller.v
+F../../spi_controller.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 ../../spi_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../spi_controller.v|
+!i113 1
+R5
+R6
+R7
+vSPI_TO_UART
+R1
+!i10b 1
+!s100 PLY49eN@VTOaW0koD81:L2
+Ic[WPBoZdlA[UHQbSG;F8L1
+R2
+R0
+w1726944425
+8../../SPI_TO_UART.v
+F../../SPI_TO_UART.v
+L0 23
+R3
+r1
+!s85 0
+31
+R4
+!s107 ../../SPI_TO_UART.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../SPI_TO_UART.v|
+!i113 1
+R5
+R6
+R7
+n@s@p@i_@t@o_@u@a@r@t
+vSPI_TO_UART_vlg_tst
+!s110 1726944840
+!i10b 1
+!s100 2G:jNgQZXmF<ThD]h?X691
+I48HK99]CmLAVD4d00M=?A3
+R2
+R0
+w1726815827
+8SPI_TO_UART_tst.v
+FSPI_TO_UART_tst.v
+L0 29
+R3
+r1
+!s85 0
+31
+!s108 1726944840.000000
+!s107 SPI_TO_UART_tst.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART/simulation/modelsim|SPI_TO_UART_tst.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART/simulation/modelsim
+R7
+n@s@p@i_@t@o_@u@a@r@t_vlg_tst
+vuart_tx
+R1
+!i10b 1
+!s100 c`iPII=g=k_0zaZmo5>UT0
+InJQVSKSKamM>MjToXgZgN0
+R2
+R0
+w1726014973
+8../../uart_tx.v
+F../../uart_tx.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 ../../uart_tx.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Temp/Veriog_kelvin/SPI_TO_UART|../../uart_tx.v|
+!i113 1
+R5
+R6
+R7

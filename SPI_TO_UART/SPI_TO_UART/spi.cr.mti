@@ -1,0 +1,22 @@
+C:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v {1 {vlog -work work -stats=none C:/Temp/Veriog_kelvin/SPI_TO_UART/div_freq.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module div_freq
+
+Top level modules:
+	div_freq
+
+} {} {}} C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v {1 {vlog -work work -stats=none C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller_tst.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module spi_controller_tst
+
+Top level modules:
+	spi_controller_tst
+
+} {} {}} C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v {1 {vlog -work work -stats=none C:/Temp/Veriog_kelvin/SPI_TO_UART/spi_controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module spi_controller
+
+Top level modules:
+	spi_controller
+
+} {} {}}

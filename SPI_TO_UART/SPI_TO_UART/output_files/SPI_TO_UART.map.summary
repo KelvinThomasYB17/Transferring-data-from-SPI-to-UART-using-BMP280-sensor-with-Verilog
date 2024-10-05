@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sat Oct 05 20:36:01 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : SPI_TO_UART
+Top-level Entity Name : SPI_TO_UART
+Family : MAX 10
+Total logic elements : 693
+    Total combinational functions : 560
+    Dedicated logic registers : 395
+Total registers : 395
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 10
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
